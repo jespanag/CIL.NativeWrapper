@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CIL.NativeWrapper.Gui</name>
+    </assembly>
+    <members>
+        <member name="T:CIL.NativeWrapper.Gui.NativeWrapperGui">
+            <summary>
+            Entry point for NativeWrapperGui application.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Gui.NativeWrapperGui.Main">
+            <summary>
+            Entry point.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Gui.frmMain">
+            <summary>
+            NativeWrapper main user interface form.
+            </summary>
+        </member>
+        <member name="F:CIL.NativeWrapper.Gui.frmMain.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Gui.frmMain.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Gui.frmMain.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,450 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CIL.NativeWrapper.Api</name>
+    </assembly>
+    <members>
+        <member name="T:CIL.NativeWrapper.Api.ApiCodeWriter">
+            <summary>
+            Writes C code for the specified dll.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.ApiCodeWriter.#ctor">
+            <summary>
+            Creates new instance of the ApiCodeWriter class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.ApiCodeWriter.WriteCode(System.String,System.String)">
+            <summary>
+            Writes application packer api in binary form using C code.
+            </summary>
+            <param name="dll">The path to the application packer api assembly.</param>
+            <param name="file">The path of the output file.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.DataPacker">
+            <summary>
+            Data packer class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DataPacker.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the DataPacker class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DataPacker.Pack(System.Byte[])">
+            <summary>
+            Packs the specified array of bytes and returns packed array.
+            </summary>
+            <param name="data">The data to pack.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DataPacker.Unpack(System.Byte[])">
+            <summary>
+            Unpacks the specified array of bytes and returns unpacked array.
+            </summary>
+            <param name="data">The data to unpack.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedData">
+            <summary>
+            Stores all data packed into a file.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.#ctor">
+            <summary>
+            Creates new instance of the PackedData class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.AddStream(System.String)">
+            <summary>
+            Adds stream to the packed data.
+            </summary>
+            <param name="path">The path of the file to add.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.AddStream(System.IO.Stream)">
+            <summary>
+            Adds stream to the packed data.
+            </summary>
+            <param name="stream">The stream to add.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.AddStream(System.Byte[])">
+            <summary>
+            Adds byte stream to the packed data.
+            </summary>
+            <param name="data">The byte data to add.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.AddStreams(System.String[])">
+            <summary>
+            Adds all specified files to the packed data.
+            </summary>
+            <param name="files">The array of file paths to add.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.Load(System.IO.Stream)">
+            <summary>
+            Loads packed data from the given stream.
+            </summary>
+            <param name="stream">The stream to load data from.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.Save(System.String)">
+            <summary>
+            Saves data to the specified file.
+            </summary>
+            <param name="path">The path to the file to save data to.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.Save(System.IO.Stream)">
+            <summary>
+            Saves data to the specified stream.
+            </summary>
+            <param name="stream">The stream to save data to.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.PackStreams(CIL.NativeWrapper.Api.DataPacker)">
+            <summary>
+            Packs data streams.
+            </summary>
+            <param name="packer">The data packer to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.UnpackStreams(CIL.NativeWrapper.Api.DataPacker)">
+            <summary>
+            Unpacks data streams.
+            </summary>
+            <param name="packer">The data packer to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.LoadFrom(System.String)">
+            <summary>
+            Loads packed data from the given file path.
+            </summary>
+            <param name="path">The path of the file to use for loading.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedData.LoadFrom(System.IO.Stream)">
+            <summary>
+            Loads packed data from the given stream.
+            </summary>
+            <param name="stream">The stream to use for loading.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedData.Item(System.Int32)">
+            <summary>
+            Gets packed data stream by the given index.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedData.StreamCount">
+            <summary>
+            Returns the number of streams inside the packed data.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedData.Options">
+            <summary>
+            Gets packed data options.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataHeader">
+            <summary>
+            Header of the packed data.
+            </summary>
+        </member>
+        <member name="F:CIL.NativeWrapper.Api.Data.PackedDataHeader.SignatureSize">
+            <summary>
+            Gets signature length in bytes.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataHeader.#ctor">
+            <summary>
+            Creates new instance of the PackedDataHeader class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataHeader.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads data using the specified binary reader.
+            </summary>
+            <param name="reader">The binary reader to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataHeader.Write(System.IO.BinaryWriter)">
+            <summary>
+            Writes data using the specified binary writer.
+            </summary>
+            <param name="writer">The binary writer to use.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataHeader.Start">
+            <summary>
+            Gets or sets packed data header start offset.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataHeader.DataTable">
+            <summary>
+            Gets packed data table.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataOptions">
+            <summary>
+            Contains packed data options such as packer class name.
+            </summary>
+        </member>
+        <member name="F:CIL.NativeWrapper.Api.Data.PackedDataOptions.DefaultPackerTypeName">
+            <summary>
+            Gets full name of the packer class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataOptions.#ctor">
+            <summary>
+            Creates new instance of the PackedDataOptions class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataOptions.Reset">
+            <summary>
+            Resets all options to defaults.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataOptions.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads options using the specified binary reader.
+            </summary>
+            <param name="reader">The reader to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataOptions.Write(System.IO.BinaryWriter)">
+            <summary>
+            Writes options using the specified binary writer.
+            </summary>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataOptions.Packer">
+            <summary>
+            Gets or sets fullname of the packer class to use.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataOptions.Runtime">
+            <summary>
+            Gets or sets .Net runtime version string.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataReader">
+            <summary>
+            Reader for the PackedData.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataReader.#ctor(CIL.NativeWrapper.Api.Data.PackedData)">
+            <summary>
+            Creates new instance of the PackedDataReader class.
+            </summary>
+            <param name="data">The data to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataReader.Read(System.IO.Stream)">
+            <summary>
+            Reads packed data from the specified stream.
+            </summary>
+            <param name="stream">The stream to read data from.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataRow">
+            <summary>
+            Contains info about packed data row.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataRow.#ctor">
+            <summary>
+            Creates new instance of the PackedDataRow class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataRow.#ctor(System.Int32)">
+            <summary>
+            Creates new instance of the PackedDataRow class.
+            </summary>
+            <param name="length">The length of row data.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataRow.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads data using the specified binary reader.
+            </summary>
+            <param name="reader">The binary reader to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataRow.Write(System.IO.BinaryWriter)">
+            <summary>
+            Writes data using the specified binary writer.
+            </summary>
+            <param name="writer">The binary writer to use.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataRow.Length">
+            <summary>
+            Gets row data lenght in bytes.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataStream">
+            <summary>
+            Contains packed byte data.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataStream.#ctor(System.Byte[])">
+            <summary>
+            Creates new instance of the stream.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataStream.Pack(CIL.NativeWrapper.Api.DataPacker)">
+            <summary>
+            Packs the data stream.
+            </summary>
+            <param name="packer">The data packer to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataStream.Unpack(CIL.NativeWrapper.Api.DataPacker)">
+            <summary>
+            Unpacka the data stream.
+            </summary>
+            <param name="packer">The data packer to use.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataStream.Data">
+            <summary>
+            Gets stream raw data.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataTable">
+            <summary>
+            Contains information about packed data streams.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataTable.#ctor">
+            <summary>
+            Creates new instance of the PackedDataTable class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataTable.AddRow(System.Int32)">
+            <summary>
+            Adds packed data row to the table.
+            </summary>
+            <param name="length">The lenght of the raw data.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataTable.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads data using the specified binary reader.
+            </summary>
+            <param name="reader">The binary reader to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataTable.Write(System.IO.BinaryWriter)">
+            <summary>
+            Writes data using the specified binary writer.
+            </summary>
+            <param name="writer">The binary writer to use.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataTable.RowCount">
+            <summary>
+            Returns the number of rows in the table.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Api.Data.PackedDataTable.Item(System.Int32)">
+            <summary>
+            Gets packed data row.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Data.PackedDataWriter">
+            <summary>
+            Writer for the PackedData.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataWriter.#ctor(CIL.NativeWrapper.Api.Data.PackedData)">
+            <summary>
+            Creates new instance of the PackedDataWriter class.
+            </summary>
+            <param name="data">The data to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Data.PackedDataWriter.Write(System.IO.Stream)">
+            <summary>
+            Writes packed data to the specified stream.
+            </summary>
+            <param name="stream">The stream to write data to.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.DefaultPacker">
+            <summary>
+            DefaultPacker class for managing packed data streams.
+            </summary>
+        </member>
+        <member name="F:CIL.NativeWrapper.Api.DefaultPacker.TypeName">
+            <summary>
+            Gets full type name of the default packer.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DefaultPacker.#ctor">
+            <summary>
+            Creates a new instance of the DataPacker class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DefaultPacker.Pack(System.Byte[])">
+            <summary>
+            Packs the specified array of bytes and returns packed array.
+            </summary>
+            <param name="data">The data to pack.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.DefaultPacker.Unpack(System.Byte[])">
+            <summary>
+            Unpacks the specified array of bytes and returns unpacked array.
+            </summary>
+            <param name="data">The data to unpack.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.Logger">
+            <summary>
+            Logging support.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.Open(System.String)">
+            <summary>
+            Opens this logger using the given log file path.
+            </summary>
+            <param name="path">The path to the log file to use.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.Close">
+            <summary>
+            Closes this logger.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.Flush">
+            <summary>
+            Saves log to a file with the given path.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.OpenSection(System.String)">
+            <summary>
+            Opens log section using the given name.
+            </summary>
+            <param name="name">The name of the section to open.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.CloseSection">
+            <summary>
+            Closes active log section.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.WriteLine">
+            <summary>
+            Writes empty line to the log.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes line to the log using the specified format string and arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments to write.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.Write(System.String,System.Object[])">
+            <summary>
+            Writes message to the log using the specified format string and arguments.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments to write.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.Logger.WriteException(System.Exception)">
+            <summary>
+            Writes exception to the log.
+            </summary>
+            <param name="ex">The exception to write.</param>
+        </member>
+        <member name="T:CIL.NativeWrapper.Api.NetLauncher">
+            <summary>
+            Application launcher.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.NetLauncher.#ctor">
+            <summary>
+            Creates new instance of the NetLauncher class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Api.NetLauncher.Launch(System.String,System.String)">
+            <summary>
+            Starts application.
+            </summary>
+            <param name="path">The path to the packed file.</param>
+            <param name="cmdLine">The command line for the application.</param>
+        </member>
+    </members>
+</doc>

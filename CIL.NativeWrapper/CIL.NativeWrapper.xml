@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CIL.NativeWrapper</name>
+    </assembly>
+    <members>
+        <member name="T:CIL.NativeWrapper.FrameworkHelper">
+            <summary>
+            .Net framework helper.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.FrameworkHelper.GetInstallRoot">
+            <summary>
+            Gets .Net framework install root.
+            </summary>
+            <returns>.Net framework install root.</returns>
+        </member>
+        <member name="M:CIL.NativeWrapper.FrameworkHelper.GetRuntimeVersions">
+            <summary>
+            Gets .Net runtime versions.
+            </summary>
+            <returns>.Net runtime versions.</returns>
+        </member>
+        <member name="T:CIL.NativeWrapper.Packer">
+            <summary>
+            Packer class provides root packing functionality.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Packer.#ctor">
+            <summary>
+            Creates new instance of the Packer class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Packer.Pack(System.String[],System.String,System.String,System.String)">
+            <summary>
+            Packs the specified assembly files using the given destination file path.
+            </summary>
+            <param name="files">The list of files to pack.</param>
+            <param name="destination">The destination path.</param>
+        </member>
+    </members>
+</doc>

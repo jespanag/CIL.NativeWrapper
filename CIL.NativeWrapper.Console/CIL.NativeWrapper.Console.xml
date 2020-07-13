@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CIL.NativeWrapper.Console</name>
+    </assembly>
+    <members>
+        <member name="T:CIL.NativeWrapper.Console.NativeWrapperConsole">
+            <summary>
+            NativeWrapper console application.
+            Use the following command line arguments:
+              To pack assemblies run:
+               CIL.NativeWrapper.Console.exe -p -input:file1;file2 -output:outfile [-runtime:version]
+             
+             version - .Net runtime version to use, e.g. specify -runtime:v2.0.50727 to use .Net 2.0 runtime.
+            
+            To run the packed file:
+              CIL.NativeWrapper.Console.exe -r:file [-args:cmdline]
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Console.CmdLineArg">
+            <summary>
+            Command line argument.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArg.#ctor(System.String,System.String)">
+            <summary>
+            Creates new instance of the CmdLineArg class.
+            </summary>
+            <param name="name">The name of the argument.</param>
+            <param name="value">The value of the argument.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Console.CmdLineArg.Name">
+            <summary>
+            Gets or sets argument name.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Console.CmdLineArg.Value">
+            <summary>
+            Gets or sets argument string value.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Console.CmdLineArgs">
+            <summary>
+            Command line arguments list.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgs.#ctor">
+            <summary>
+            Creates new instance of the CmdLineArgs class.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgs.Add(CIL.NativeWrapper.Console.CmdLineArg)">
+            <summary>
+            Adds new command line argument.
+            </summary>
+            <param name="arg">The argument to add.</param>
+            <returns>The index of newly added argument.</returns>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgs.Contains(System.String)">
+            <summary>
+            Returns true if the specified argument is present.
+            </summary>
+            <param name="name">The name of the argument to check.</param>
+        </member>
+        <member name="P:CIL.NativeWrapper.Console.CmdLineArgs.Item(System.Int32)">
+            <summary>
+            Gets or sets command line argument at the specified index.
+            </summary>
+        </member>
+        <member name="P:CIL.NativeWrapper.Console.CmdLineArgs.Item(System.String)">
+            <summary>
+            Gets or sets command line argument with the specified name.
+            </summary>
+        </member>
+        <member name="T:CIL.NativeWrapper.Console.CmdLineArgsParser">
+            <summary>
+            Command line aruments parser.
+            </summary>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgsParser.RemoveArgStart(System.String)">
+            <summary>
+            Checks given name for the argument start string and removes it..
+            </summary>
+            <param name="name">The name to check.</param>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgsParser.Parse(System.String[])">
+            <summary>
+            Parsers the given command line arguments.
+            </summary>
+            <param name="args">The arguments to parse.</param>
+            <returns>CmdLineArgs instance.</returns>
+        </member>
+        <member name="M:CIL.NativeWrapper.Console.CmdLineArgsParser.Parse(System.String)">
+            <summary>
+            Parsers single command line argument.
+            </summary>
+            <param name="arg">The string argument to parse.</param>
+            <returns>CmdLineArg instance.</returns>
+        </member>
+        <member name="P:CIL.NativeWrapper.Console.CmdLineArgsParser.ArgStart">
+            <summary>
+            Gets string with argument start strings, separated by ";".
+            </summary>
+        </member>
+    </members>
+</doc>
